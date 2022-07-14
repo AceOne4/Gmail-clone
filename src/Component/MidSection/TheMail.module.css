@@ -1,0 +1,33 @@
+.container {
+  padding: 25px;
+}
+.mail_header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5%;
+}
+.mail_header > p {
+  margin-left: auto;
+  text-align: right;
+  font-size: smaller;
+}
+.mail_body {
+  margin: 20px;
+  line-height: 2;
+  font-size: 16px;
+}
+.mail_footer {
+  display: flex;
+  gap: 20px;
+  margin-top: 10%;
+}
+.mail_footer > .Button {
+  color: #7b7b7b;
+  border: 1px solid #7b7b7b;
+  width: 120px;
+  transition: 0.4s;
+}
+.mail_footer > .Button:hover {
+  background-color: #d0d0d0;
+}

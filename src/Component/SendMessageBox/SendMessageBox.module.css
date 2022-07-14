@@ -1,0 +1,77 @@
+.container {
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+}
+.form {
+  background: #4f4d4d;
+  height: 325px;
+  width: 400px;
+  border-radius: 20px 20px 0 0;
+}
+.form > div > h2 {
+  color: white;
+
+  font-size: 18px;
+  padding: 15px;
+}
+.form > input {
+  width: 384px;
+  height: 25px;
+  margin: 0;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid whitesmoke;
+  padding: 8px;
+}
+
+.form > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form > input:focus {
+  outline: none;
+}
+.form > textarea {
+  width: 384px;
+  height: 124px;
+  margin: 0;
+  outline: none;
+  border: none;
+  padding: 8px;
+}
+.form > textarea {
+  outline: none;
+}
+
+.form > .Button {
+  background: #5c76d2;
+  color: white;
+  margin-left: 8px;
+  padding: 5px;
+  margin-top: 3px;
+  transition: 0.4s;
+}
+
+.form > .Button:hover {
+  background: white;
+  color: #5c76d2;
+}
+.Icon {
+  padding: 10px;
+  color: white !important;
+  cursor: pointer;
+}
+.miniform {
+  background: #4f4d4d;
+  display: flex;
+  border-radius: 20px 20px 0 0;
+}
+
+.miniform > h2 {
+  color: white;
+
+  font-size: 18px;
+  padding: 15px;
+}

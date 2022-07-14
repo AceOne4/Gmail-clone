@@ -1,0 +1,11 @@
+.icon_Container {
+  display: flex;
+  gap: 10px;
+}
+.icon_Container > div {
+  border-right: 1px solid whitesmoke;
+  padding: 5px;
+}
+.list {
+  width: 80%;
+}

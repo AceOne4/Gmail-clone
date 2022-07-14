@@ -1,0 +1,12 @@
+.headercard {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  height: 40px;
+  width: 100%;
+  border-bottom: 1px solid whitesmoke;
+}
+.headercard > * {
+  display: flex;
+  align-items: center;
+}

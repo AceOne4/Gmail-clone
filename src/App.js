@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import Header from "./Component/Header/Header";
+import Mail from "./Pages/Mail";
+import SideBar from "./Component/Side Bar/SideBar";
+import ListMail from "./Pages/ListMail";
+import SendMessageBox from "./Component/SendMessageBox/SendMessageBox";
+import { useSelector } from "react-redux";
+import { useNewMessage } from "./hooks/useFetchData";
+import { useState } from "react";
 
 function App() {
+  const [refresh, setRefresh] = useState(0);
+  console.log(refresh);
+  const globalState = useSelector((state) => state.showBox);
+
+  const NewMessage = (message) => useNewMessage(message);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="Body">
+        <SideBar />
+
+        <Routes>
+          <Route path="/:mailId" element={<Mail />} />
+
+          <Route path="/" element={<ListMail />} />
+        </Routes>
+      </div>
+      {globalState.ShowMessageBox ? (
+        <SendMessageBox
+          refresh={() => setRefresh(refresh + 1)}
+          AddNewMessage={NewMessage}
+        />
+      ) : null}
     </div>
   );
 }

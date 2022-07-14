@@ -1,0 +1,32 @@
+.List {
+  width: 80%;
+}
+.sections {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+  border-bottom: 1px solid whitesmoke;
+}
+.sections > section {
+  display: flex;
+  gap: 5px;
+  width: 30%;
+  height: 30px;
+  padding: 10px;
+  align-items: center;
+  transition: 0.4s;
+  color: #7b7b7b;
+  cursor: pointer;
+}
+.sections > section:hover {
+  background-color: #d0d0d0;
+}
+.mail_Container {
+  width: 100%;
+}
+.sections > .active {
+  background-color: #fcecec;
+  color: #c04b37;
+  border-bottom: 3px solid;
+}
