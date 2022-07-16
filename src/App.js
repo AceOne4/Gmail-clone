@@ -5,16 +5,25 @@ import Mail from "./Pages/Mail";
 import SideBar from "./Component/Side Bar/SideBar";
 import ListMail from "./Pages/ListMail";
 import SendMessageBox from "./Component/SendMessageBox/SendMessageBox";
-import { useSelector } from "react-redux";
-import { useNewMessage } from "./hooks/useFetchData";
-import { useState } from "react";
-
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { NewMessage, FethData } from "./store/Messsages-actions";
+let intital = true;
 function App() {
-  const [refresh, setRefresh] = useState(0);
-  console.log(refresh);
   const globalState = useSelector((state) => state.showBox);
+  const MailMassages = useSelector((state) => state.Messages);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(FethData());
+  }, []);
 
-  const NewMessage = (message) => useNewMessage(message);
+  useEffect(() => {
+    if (intital) {
+      intital = false;
+      return;
+    }
+    if (MailMassages.change) dispatch(NewMessage(MailMassages));
+  }, [MailMassages, dispatch]);
   return (
     <div className="App">
       <Header />
@@ -27,12 +36,7 @@ function App() {
           <Route path="/" element={<ListMail />} />
         </Routes>
       </div>
-      {globalState.ShowMessageBox ? (
-        <SendMessageBox
-          refresh={() => setRefresh(refresh + 1)}
-          AddNewMessage={NewMessage}
-        />
-      ) : null}
+      {globalState.ShowMessageBox ? <SendMessageBox /> : null}
     </div>
   );
 }

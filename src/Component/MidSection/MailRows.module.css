@@ -35,6 +35,10 @@
   overflow: hidden;
 }
 .right {
+  display: flex;
+  align-items: center;
   width: 10%;
   text-align: end;
+  margin-left: auto;
+  margin-right: 5px;
 }

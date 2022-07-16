@@ -5,12 +5,15 @@ import CloseIcon from "@mui/icons-material/Close";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useDispatch } from "react-redux";
 import { ShowMessageBoxAction } from "../../store/Slice";
+import { Messagesction } from "../../store/MessageSlice";
 
 function SendMessageBox(props) {
   const [shrink, setshrink] = useState(false);
   const title = useRef();
   const message = useRef();
   const description = useRef();
+  const dispatch = useDispatch();
+
   const minHanlder = () => {
     setshrink(true);
   };
@@ -19,22 +22,26 @@ function SendMessageBox(props) {
   };
   const submitHandler = (e) => {
     e.preventDefault();
+
     // console.log(title.current.value);
     // console.log(message.current.value);
     // console.log(description.current.value);
+    const today = new Date();
+
     const messageContent = {
-      title: title.current.value,
+      id: Math.random().toString(36).slice(2),
+      title: title.current.value.slice(0, -2),
       message: message.current.value,
       description: description.current.value,
+      time: today.toLocaleTimeString("en-us"),
     };
-    props.AddNewMessage(messageContent);
-    props.refresh();
+    dispatch(Messagesction.AddMessages(messageContent));
+
     title.current.value =
       message.current.value =
       description.current.value =
         "";
   };
-  const dispatch = useDispatch();
   const { close } = ShowMessageBoxAction;
   const MessgaeClose = () => {
     dispatch(close());

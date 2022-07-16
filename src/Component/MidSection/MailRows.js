@@ -5,7 +5,6 @@ import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import LabelImportantOutlinedIcon from "@mui/icons-material/LabelImportantOutlined";
 import { useNavigate } from "react-router-dom";
-
 function MailRows(props) {
   const navigate = useNavigate();
   const NavigteTo = () => {

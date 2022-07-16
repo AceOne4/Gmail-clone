@@ -12,9 +12,11 @@ import PersonIcon from "@mui/icons-material/Person";
 import DuoIcon from "@mui/icons-material/Duo";
 import PhoneIcon from "@mui/icons-material/Phone";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ShowMessageBoxAction } from "../../store/Slice";
 const SideBar = () => {
+  const MailMassages = useSelector((state) => state.Messages);
+
   const InboxHandler = () => {};
   const dispatch = useDispatch();
   const { open } = ShowMessageBoxAction;
@@ -35,7 +37,7 @@ const SideBar = () => {
           <li className={style.active} onClick={InboxHandler}>
             <InboxIcon />
             <h4>Inbox</h4>
-            <p>54</p>
+            <p>{MailMassages.amountOfmessages}</p>
           </li>
 
           <li>
